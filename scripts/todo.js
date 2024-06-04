@@ -9,14 +9,22 @@ window.onload = () => {
 }
 
 async function daFunction(inputField, outputField) {
-    let url = "https://jsonplaceholder.typicode.com/todos/" + inputField.value;
-    let response = await fetch(url, {});
-    let data = await response.json();
+    try {
+        let url = "https://jsonplaceholder.typicode.com/todos/" + inputField.value;
+        let response = await fetch(url, {});
+        if (!response.ok) {
+            outputField.innerHTML = "Error";
+            throw new Error("Type better");
+        }
+        let data = await response.json();
 
-    outputField.innerHTML = `
-    userId: ${data.userId}
-    id: ${data.id}
-    title: ${data.title}
-    completed: ${data.completed}
-    `;
+        outputField.innerHTML = `
+        <div><b>userId:</b> ${data.userId}</div>
+        <div><b>id:</b> ${data.id}</div>
+        <div><b>title:</b> ${data.title}</div>
+        <div><b>completed:</b> ${data.completed}</div>
+        `;
+    } catch (error) {
+        console.log(error);
+    }
 } 
