@@ -3,7 +3,7 @@
 window.onload = () => {
     let myDiv = document.querySelector("#results");
     let myButton = document.querySelector("#theButton");
-    let myInput = document.querySelector("#todoId")
+    let myInput = document.querySelector("#todoId");
 
     myButton.addEventListener("click", () => daFunction(myInput, myDiv));
 }
