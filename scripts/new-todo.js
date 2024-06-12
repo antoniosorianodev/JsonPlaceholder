@@ -14,7 +14,7 @@ const createATodo = async (event) => {
 
     try {
 
-        let response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+        let response = await fetch("https://jsonplaceholder.typicode.com/todos", {
             method: "POST",
             headers: { "Content-type": "application/json; charset=UTF-8" },
             body: JSON.stringify(formDataAsObject)
